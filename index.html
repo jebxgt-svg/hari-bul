@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hari dan Bulan dalam Bahasa Jepang - Quiz 50</title>
+</head>
+
+<style>
+  * { box-sizing: border-box; 
+  }
+ 
+  body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #ffe6eb, #fff8f0);
+    text-align: center;
+    transition: background 1s ease;
+    margin: 0; 
+    padding: 0;
+    }
+  
+  .page { 
+    display: none; 
+    opacity: 0; 
+    transition: opacity 0.8s ease; 
+    padding: 20px; 
+    animation: fadeIn 0.8s forwards; }
+
+  .active { 
+    display: block; 
+    opacity: 1; }
+
+  h1,h2 { 
+    text-align: center; 
+    color: #ff6f61; }
+
+  button {
+    background: linear-gradient(90deg, #ffd3d3, #ffb6b9);
+    border: none; 
+    padding: 12px 20px; 
+    margin: 12px auto; 
+    border-radius: 10px;
+    cursor: pointer; 
+    font-size: 16px; 
+    width: 80%; 
+    max-width: 300px; 
+    display: block;
+    transition: transform 0.2s, background 0.3s;
+    }
+
+  button:hover { 
+    background: linear-gradient(90deg, #ff9aa2, #ffb6c1); 
+    transform: scale(1.05); 
+    }
+
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin: 20px 0; 
+    }
+
+  th, td { 
+    border: 1px solid #ffb6b9; 
+    padding: 10px; 
+    text-align: center; 
+    }
+
+  th { 
+    background-color: #f6abb6; 
+    color: white; 
+    }
+
+  tr:nth-child(even) { 
+    background-color: #fff0f5; 
+    }
+
+  .question { 
+    margin-bottom: 20px; 
+    text-align: left; 
+    background-color: #fff5f7; 
+    padding: 15px; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(255,182,193,0.4); 
+    }
+
+  #hasil { 
+    margin-top: 20px; 
+    font-size: 18px; 
+    color: #e84170; 
+    font-weight: bold; 
+    opacity: 0; 
+    transition: opacity 1s ease; 
+    }
+
+  .result-box { 
+    border-radius: 10px; 
+    margin: 15px auto; 
+    padding: 10px; 
+    width: 90%; 
+    max-width: 500px; 
+    text-align: left; 
+    box-shadow: 0 0 8px rgba(0,0,0,0.1); 
+    transition: opacity 1s ease; 
+    }
+
+  .benar { 
+    background-color: #d1f7d1; 
+    }
+
+  .salah { 
+    background-color: #ffd6d6; 
+    }
+
+  #hasil.show { 
+    opacity: 1; 
+    }
+    
+  @keyframes fadeIn { 
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); } to { 
+            opacity: 1; 
+            transform: translateY(0); } 
+        }
+
+  /* small helper */
+  .opts label { 
+    display:block; 
+    margin:6px 0; 
+    cursor:pointer; 
+    }
+
+  .top-row { 
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center; 
+    gap:12px; 
+    flex-wrap:wrap; 
+    }
+
+  .small-btn { 
+    width:auto; 
+    padding:8px 12px; 
+    font-size:14px; 
+    }
+
+</style>
+
+<body>
+
+<!-- COVER -->
+<div id="cover" class="page active">
+  <h1> Hari dan Bulan dalam Bahasa Jepang </h1>
+  <h1> 日本語の曜日と月 </h1>
+  <p></p>
+  <div style="max-width:420px;margin:0 auto;">
+    <button onclick="showPage('hari')">Hari</button>
+    <button onclick="showPage('bulan')">Bulan</button>
+    <button onclick="startQuiz()">Latihan Soal</button>
+  </div>
+</div> 
+
+<!-- HALAMAN HARI -->
+<div id="hari" class="page">
+  <h2>☀️ Hari dalam Bahasa Jepang ☀️</h2>
+  <table>
+    <tr><th>Bahasa Indonesia</th><th>Bahasa Jepang</th><th>Romaji</th></tr>
+    <tr><td>Senin</td><td>月曜日（げつようび）</td><td>Getsuyoubi</td></tr>
+    <tr><td>Selasa</td><td>火曜日（かようび）</td><td>Kayoubi</td></tr>
+    <tr><td>Rabu</td><td>水曜日（すいようび）</td><td>Suiyoubi</td></tr>
+    <tr><td>Kamis</td><td>木曜日（もくようび）</td><td>Mokuyoubi</td></tr>
+    <tr><td>Jumat</td><td>金曜日（きにょうび）</td><td>Kinyoubi</td></tr>
+    <tr><td>Sabtu</td><td>土曜日（どようび）</td><td>Doyoubi</td></tr>
+    <tr><td>Minggu</td><td>日曜日（にちようび）</td><td>Nichiyoubi</td></tr>
+  </table>
+
+  <table>
+    <tr><th>Bahasa Jepang</th><th>Romaji</th><th>Arti</th></tr>
+    <tr><td>月曜日に新しい仕事が始まります。</td><td>Getsuyoubi ni atarashii shigoto ga hajimarimasu.</td><td>Pekerjaan baru saya dimulai pada hari Senin.</td></tr>
+    <tr><td>火曜日はテストがあります。</td><td>Kayoubi wa tesuto ga arimasu.</td><td>Pada hari Selasa ada ujian.</td></tr>
+    <tr><td>水曜日に友だちと映画を見ます。</td><td>Suiyoubi ni tomodachi to eiga o mimasu.</td><td>Pada hari Rabu saya menonton film dengan teman.</td></tr>
+    <tr><td>木曜日はサッカーの練習があります。</td><td>Mokuyoubi wa sakkā no renshuu ga arimasu.</td><td>Hari Kamis ada latihan sepak bola.</td></tr>
+    <tr><td>金曜日に家族と外食します。</td><td>Kinyoubi ni kazoku to gaishoku shimasu.</td><td>Pada hari Jumat saya makan di luar bersama keluarga.</td></tr>
+    <tr><td>土曜日は買い物に行きます。</td><td>Doyoubi wa kaimono ni ikimasu.</td><td>Hari Sabtu saya pergi berbelanja.</td></tr>
+    <tr><td>日曜日はゆっくり休みたいです。</td><td>Nichiyoubi wa yukkuri yasumitai desu.</td><td>Hari Minggu saya ingin beristirahat dengan santai.</td></tr>
+  </table>
+
+    <div class="menu">
+      <button onclick="showPage('cover')">Kembali</button>
+    </div>
+</div>
+
+<!-- HALAMAN BULAN -->
+<div id="bulan" class="page">
+  <h2>🌛 Bulan dalam Bahasa Jepang 🌛</h2>
+  <table>
+    <tr><th>Bahasa Indonesia</th><th>Bahasa Jepang</th><th>Romaji</th></tr>
+    <tr><td>Januari</td><td>一月（いちがつ）</td><td>Ichigatsu</td></tr>
+    <tr><td>Februari</td><td>二月（にがつ）</td><td>Nigatsu</td></tr>
+    <tr><td>Maret</td><td>三月（さんがつ）</td><td>Sangatsu</td></tr>
+    <tr><td>April</td><td>四月（しがつ）</td><td>Shigatsu</td></tr>
+    <tr><td>Mei</td><td>五月（ごがつ）</td><td>Gogatsu</td></tr>
+    <tr><td>Juni</td><td>六月（ろくがつ）</td><td>Rokugatsu</td></tr>
+    <tr><td>Juli</td><td>七月（しちがつ）</td><td>Shichigatsu</td></tr>
+    <tr><td>Agustus</td><td>八月（はちがつ）</td><td>Hachigatsu</td></tr>
+    <tr><td>September</td><td>九月（くがつ）</td><td>Kugatsu</td></tr>
+    <tr><td>Oktober</td><td>十月（じゅうがつ）</td><td>Juugatsu</td></tr>
+    <tr><td>November</td><td>十一月（じゅういちがつ）</td><td>Juuichigatsu</td></tr>
+    <tr><td>Desember</td><td>十二月（じゅうにがつ）</td><td>Juunigatsu</td></tr>
+  </table>
+
+  <table>
+    <tr><th>Bahasa jepang</th><th>Romaji</th><th>Arti</th></tr>
+    <tr><td>1月はとても寒いです。</td><td>Ichigatsu wa totemo samui desu.</td><td>Bulan Januari sangat dingin.</td></tr>
+    <tr><td>2月に日本へ行く予定です。</td><td>Nigatsu ni Nihon e iku yotei desu.</td><td>Saya berencana pergi ke Jepang pada bulan Februari.</td></tr>
+    <tr><td>3月に学校を卒業しました。</td><td>Sangatsu ni gakkou o sotsugyou shimashita.</td><td>Saya lulus sekolah pada bulan Maret.</td></tr>
+    <tr><td>4月から新しいクラスが始まります。</td><td>Shigatsu kara atarashii kurasu ga hajimarimasu.</td><td>Mulai bulan April kelas baru dimulai.</td></tr>
+    <tr><td>5月は花がきれいに咲きます。</td><td>Gogatsu wa hana ga kirei ni sakimasu.</td><td>Pada bulan Mei bunga-bunga mekar dengan indah.</td></tr>
+    <tr><td>6月は雨が多いです。</td><td>Rokugatsu wa ame ga ooi desu.</td><td>Bulan Juni banyak hujan.</td></tr>
+    <tr><td>7月に夏休みが始まります。</td><td>Shichigatsu ni natsu yasumi ga hajimarimasu.</td><td>Liburan musim panas dimulai pada bulan Juli.</td></tr>
+    <tr><td>8月に旅行するつもりです。</td><td>Hachigatsu ni ryokou suru tsumori desu.</td><td>Saya berencana berlibur pada bulan Agustus.</td></tr>
+    <tr><td>9月は新学期が始まります。</td><td>Kugatsu wa shingakki ga hajimarimasu.</td><td>Semester baru dimulai pada bulan September.</td></tr>
+    <tr><td>10月に文化祭があります。</td><td>Juugatsu ni bunkasai ga arimasu.</td><td>Ada festival budaya pada bulan Oktober.</td></tr>
+    <tr><td>11月は涼しくて過ごしやすいです。</td><td>Juuichigatsu wa suzushikute sugoshiyasui desu.</td><td>Bulan November sejuk dan nyaman.</td></tr>
+    <tr><td>12月にクリスマスを祝います。</td><td>Juunigatsu ni Kurisumasu o iwaimasu.</td><td>Saya merayakan Natal di bulan Desember.</td></tr>
+  </table>
+  <button onclick="showPage('cover')">Kembali</button>
+</div>
+
+<!-- SOAL -->
+<div id="soal" class="page">
+  <div class="top-row" style="max-width:900px;margin:0 auto 10px;">
+    <h2 style="margin:0">Latihan Soal</h2>
+  </div>
+  <div id="daftar-soal" style="max-width:900px;margin:0 auto;"></div>
+  <div style="max-width:900px;margin:0 auto 20px;">
+    <button onclick="cekNilai()">Cek Nilai</button>
+    <button onclick="showPage('cover')">Kembali</button>
+  </div>
+</div>
+
+<!-- HASIL -->
+<div id="hasil" class="page">
+  <h2>Hasil Nilai Kamu</h2>
+  <div id="hasil-nilai" class="score"></div>
+  <div id="detail-hasil"></div>
+  <div style="max-width:420px;margin:16px auto;">
+    <button onclick="startQuiz()">Coba Lagi</button>
+    <button onclick="showPage('cover')">Kembali</button>
+  </div>
+</div>
+
+</body>
+
+<script>
+// ==========================
+// BANK SOAL (50 soal total)
+// ==========================
+const bankSoal = [
+/* 1-38 : standar hari + bulan (campuran romaji/kanji) */
+{tanya:"Apa bahasa Jepang dari 'Senin'?", opsi:["Kayoubi","Getsuyoubi","Nichiyoubi","Kinyoubi"], benar:"Getsuyoubi"},
+{tanya:"Apa bacaan dari 火曜日 ?", opsi:["Kayoubi","Mokuyoubi","Suiyoubi","Nichiyoubi"], benar:"Kayoubi"},
+{tanya:"Apa arti dari '水曜日'?", opsi:["Selasa","Rabu","Minggu","Kamis"], benar:"Rabu"},
+{tanya:"Apa bahasa Jepang dari 'Kamis'?", opsi:["Mokuyoubi","Kayoubi","Doyoubi","Nichiyoubi"], benar:"Mokuyoubi"},
+{tanya:"Apa romaji dari 木曜日 ?", opsi:["Mokuyoubi","Kinyoubi","Getsuyoubi","Suiyoubi"], benar:"Mokuyoubi"},
+{tanya:"Apa bahasa Jepang dari 'Jumat'?", opsi:["Nichiyoubi","Doyoubi","Kinyoubi","Kayoubi"], benar:"Kinyoubi"},
+{tanya:"Apa arti dari 土曜日 ?", opsi:["Sabtu","Jumat","Rabu","Senin"], benar:"Sabtu"},
+{tanya:"Apa romaji dari 日曜日 ?", opsi:["Nichiyoubi","Getsuyoubi","Doyoubi","Kinyoubi"], benar:"Nichiyoubi"},
+{tanya:"Hari apa adalah '月曜日'?", opsi:["Senin","Selasa","Rabu","Kamis"], benar:"Senin"},
+{tanya:"Kanji untuk 'Selasa' adalah ?", opsi:["火曜日","月曜日","木曜日","金曜日"], benar:"火曜日"},
+{tanya:"Romaji dari 水曜日 adalah ?", opsi:["Suiyoubi","Kayoubi","Shigatsu","Ichigatsu"], benar:"Suiyoubi"},
+{tanya:"Apa bahasa Jepang dari 'Minggu'?", opsi:["日曜日","土曜日","金曜日","月曜日"], benar:"日曜日"},
+{tanya:"Apa arti dari 金曜日 ?", opsi:["Jumat","Sabtu","Rabu","Minggu"], benar:"Jumat"},
+{tanya:"Apa bahasa Jepang dari 'Sabtu'?", opsi:["土曜日","日曜日","火曜日","金曜日"], benar:"土曜日"},
+{tanya:"Romaji dari 土曜日 adalah ?", opsi:["Doyoubi","Nichiyoubi","Kayoubi","Suiyoubi"], benar:"Doyoubi"},
+{tanya:"Apa bacaan dari 月曜日 ?", opsi:["Getsuyoubi","Kayoubi","Suiyoubi","Nichiyoubi"], benar:"Getsuyoubi"},
+{tanya:"Bulan pertama disebut ?", opsi:["Shigatsu","Ichigatsu","Nigatsu","Sangatsu"], benar:"Ichigatsu"},
+{tanya:"'Nigatsu' adalah bulan ke ... ?", opsi:["1","2","3","4"], benar:"2"},
+{tanya:"'Sangatsu' berarti bulan ... ?", opsi:["Januari","Februari","Maret","April"], benar:"Maret"},
+{tanya:"'Shigatsu' adalah bulan ... ?", opsi:["April","Mei","Maret","Juni"], benar:"April"},
+{tanya:"'Gogatsu' artinya ?", opsi:["Juni","Mei","Juli","Agustus"], benar:"Mei"},
+{tanya:"'Rokugatsu' adalah bulan ... ?", opsi:["5","6","7","8"], benar:"6"},
+{tanya:"'Shichigatsu' dibaca apa ?", opsi:["Shichigatsu","Nanagatsu","Hachigatsu","Rokugatsu"], benar:"Shichigatsu"},
+{tanya:"'Hachigatsu' itu bulan ... ?", opsi:["7","8","9","10"], benar:"8"},
+{tanya:"'Kugatsu' artinya bulan ... ?", opsi:["Agustus","September","Oktober","November"], benar:"September"},
+{tanya:"'Juugatsu' dibaca ... ?", opsi:["Juugatsu","Juunigatsu","Juuichigatsu","Juunigatsu"], benar:"Juugatsu"},
+{tanya:"'Juuichigatsu' adalah ?", opsi:["Oktober","November","Desember","Januari"], benar:"November"},
+{tanya:"'Juunigatsu' adalah ?", opsi:["Desember","Januari","Februari","Oktober"], benar:"Desember"},
+{tanya:"Bulan setelah 'Sangatsu' adalah ... ?", opsi:["Shigatsu","Nigatsu","Ichigatsu","Gogatsu"], benar:"Shigatsu"},
+{tanya:"Bulan sebelum 'Shigatsu' adalah ... ?", opsi:["Sangatsu","Gogatsu","Rokugatsu","Nigatsu"], benar:"Sangatsu"},
+{tanya:"Apa arti '今日' (きょう) ?", opsi:["Hari ini","Besok","Kemarin","Minggu"], benar:"Hari ini"},
+{tanya:"Apa arti '明日' (あした) ?", opsi:["Besok","Kemarin","Hari ini","Minggu"], benar:"Besok"},
+{tanya:"Apa arti '昨日' (きのう) ?", opsi:["Kemarin","Besok","Hari ini","Minggu"], benar:"Kemarin"},
+{tanya:"'毎日' (まいにち) artinya ?", opsi:["Setiap hari","Setiap minggu","Setiap bulan","Sekali"], benar:"Setiap hari"},
+{tanya:"'週末' (しゅうまつ) artinya ?", opsi:["Akhir minggu","Awal minggu","Setiap hari","Libur"], benar:"Akhir minggu"},
+{tanya:"'来週' (らいしゅう) artinya ?", opsi:["Minggu depan","Minggu lalu","Hari ini","Besok"], benar:"Minggu depan"},
+
+/* 39-50 : 12 soal kalimat (kanji + furigana ditampilkan di teks soal) */
+/* hari-related sentences (39-44) */
+{tanya:"月曜日（げつようび）の朝（あさ）にジョギングします。 — Apa arti kalimat ini?", opsi:["Saya jogging pada pagi hari Senin","Saya tidur pada Senin pagi","Saya ke sekolah Senin malam","Saya bekerja Senin siang"], benar:"Saya jogging pada pagi hari Senin"},
+{tanya:"土曜日（どようび）に友（とも）だちとあそびます。 — Apa arti kalimat ini?", opsi:["Saya bermain dengan teman pada hari Sabtu","Saya bekerja pada hari Sabtu","Saya belajar pada Sabtu","Saya berlibur pada hari Jumat"], benar:"Saya bermain dengan teman pada hari Sabtu"},
+{tanya:"金曜日（きんようび）は仕事（しごと）がいそがしいです。 — Artinya?", opsi:["Hari Jumat saya sibuk bekerja","Hari Jumat saya libur","Hari Jumat saya santai","Hari Jumat saya pergi berbelanja"], benar:"Hari Jumat saya sibuk bekerja"},
+{tanya:"来週（らいしゅう）の水曜日（すいようび）にテストがあります。 — Artinya?", opsi:["Ada tes pada Rabu minggu depan","Ada ujian hari ini","Ada tes minggu lalu","Tidak ada tes minggu depan"], benar:"Ada tes pada Rabu minggu depan"},
+{tanya:"火曜日（かようび）の夜（よる）はテレビを見（み）ます。 — Artinya?", opsi:["Saya menonton TV pada malam Selasa","Saya menonton TV pada Senin malam","Saya tidak menonton TV Selasa","Saya menonton TV setiap hari"], benar:"Saya menonton TV pada malam Selasa"},
+{tanya:"先週（せんしゅう）の日曜日（にちようび）はうちで休（やす）みました。 — Artinya?", opsi:["Minggu lalu saya istirahat di rumah","Minggu lalu saya pergi ke sekolah","Minggu depan saya istirahat","Saya selalu istirahat di rumah"], benar:"Minggu lalu saya istirahat di rumah"},
+
+/* month-related sentences (45-50) */
+{tanya:"1月（いちがつ）にあたらしい目標（もくひょう）をつくりました。 — Apa arti kalimat ini?", opsi:["Saya membuat tujuan baru pada bulan Januari","Saya membeli buku pada Januari","Saya pindah rumah pada Januari","Saya liburan pada Januari"], benar:"Saya membuat tujuan baru pada bulan Januari"},
+{tanya:"4月（しがつ）から学校（がっこう）が始（はじ）まります。 — Artinya?", opsi:["Sekolah dimulai pada bulan April","Sekolah berakhir pada April","Sekolah dimulai pada Mei","Sekolah libur pada April"], benar:"Sekolah dimulai pada bulan April"},
+{tanya:"6月（ろくがつ）は雨（あめ）が多（おお）いです。 — Artinya?", opsi:["Bulan Juni banyak hujan","Bulan Juni sangat panas","Bulan Juni banyak salju","Bulan Juni tidak ada hujan"], benar:"Bulan Juni banyak hujan"},
+{tanya:"8月（はちがつ）に旅行（りょこう）へ行（い）くよていです。 — Makna?", opsi:["Saya berencana pergi berlibur pada Agustus","Saya bekerja di Agustus","Saya pindah rumah pada Agustus","Saya tidak punya rencana Agustus"], benar:"Saya berencana pergi berlibur pada Agustus"},
+{tanya:"10月（じゅうがつ）に文化祭（ぶんかさい）があります。 — Artinya?", opsi:["Ada festival budaya pada bulan Oktober","Ada ujian pada Oktober","Ada libur panjang Oktober","Tidak ada acara Oktober"], benar:"Ada festival budaya pada bulan Oktober"},
+{tanya:"12月（じゅうにがつ）はイベントがたくさんあります。 — Terjemahan?", opsi:["Desember ada banyak acara","Desember sangat sepi","Desember tidak ada acara","Desember banyak ujian"], benar:"Desember ada banyak acara"}
+];
+
+// ==========================
+// state
+// ==========================
+let soal = []; // currently shown 25 soal
+const QUESTIONS_PER_SESSION = 25;
+const POINT_PER_QUESTION = 4; // 25 * 4 = 100
+
+// shuffle helper
+function acakArray(arr){
+  return arr.sort(() => Math.random() - 0.5);
+}
+
+// start quiz: pick 25 random from bankSoal and render
+function startQuiz(){
+  // pick a shuffled copy of bankSoal and take first 25
+  soal = acakArray([...bankSoal]).slice(0, QUESTIONS_PER_SESSION);
+  renderSoal();
+  showPage('soal');
+  // scroll to top
+  window.scrollTo(0,0);
+}
+
+// reload (acak ulang 25 soal baru)
+function reloadSoal(){
+  startQuiz();
+}
+
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+// render soal to DOM
+function renderSoal(){
+  const container = document.getElementById("daftar-soal");
+  container.innerHTML = "";
+  soal.forEach((s, i) => {
+    // shuffle options for each question
+    const opsi = acakArray([...s.opsi]);
+    let html = `<div class='question'><p><b>${i+1}.</b> ${s.tanya}</p>`;
+    html += `<div class="opts">`;
+    opsi.forEach(opt => {
+      // value use exact option text for comparison
+      html += `<label><input type="radio" name="q${i}" value="${escapeHtml(opt)}"> ${escapeHtml(opt)}</label>`;
+    });
+    html += `</div></div>`;
+    container.innerHTML += html;
+  });
+}
+
+// escape html to prevent issues
+function escapeHtml(text) {
+  return (text+"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
+}
+
+// check answers
+function cekNilai(){
+  let benarCount = 0;
+  let hasilDetail = "";
+
+  soal.forEach((s, i) => {
+    const sel = document.querySelector(`input[name='q${i}']:checked`);
+    const pilih = sel ? unescapeHtml(sel.value) : "(tidak dijawab)";
+    if(pilih === s.benar){
+      benarCount++;
+      hasilDetail += `<div class='result-box benar'><b>${i+1}.</b> Jawaban kamu: ${escapeHtml(pilih)} ✓</div>`;
+    } else {
+      hasilDetail += `<div class='result-box salah'><b>${i+1}.</b> Jawaban kamu: ${escapeHtml(pilih)} ✗<br></div>`;
+    }
+  });
+
+  // score: per question POINT_PER_QUESTION
+  const score = benarCount * POINT_PER_QUESTION;
+
+  document.getElementById("hasil-nilai").innerHTML = `Nilai kamu: ${score} / 100 (${benarCount} dari ${soal.length} benar)`;
+  document.getElementById("detail-hasil").innerHTML = hasilDetail;
+  showPage('hasil');
+  window.scrollTo(0,0);
+}
+
+function unescapeHtml(s){
+  return (s+"").replaceAll("&amp;","&").replaceAll("&lt;","<").replaceAll("&gt;",">").replaceAll("&quot;","\"");
+}
+
+// auto-start: none. user clicks Latihan Soal to begin.
+
+</script>
+
+</html>
